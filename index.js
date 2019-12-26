@@ -1,5 +1,3 @@
-const TelegramBot = require('node-telegram-bot-api')
-const bot = new TelegramBot(TOKEN, { polling: true })
 const port = process.env.PORT || 3000
 const express = require('express');
 const server = express();
@@ -16,7 +14,7 @@ server.listen(port, function(){
     console.log(`Aplicacao rodando na porta ${port}`)
 })
 
-bot.command('start')
+bot.command('oi')
 .invoke(function (ctx) {
   // Setting data, data is used in text message templates.
   ctx.data.user = ctx.meta.user;
@@ -24,10 +22,12 @@ bot.command('start')
   return ctx.sendMessage('Oi <%=user.first_name%>. Você está bem?');
 })
 .answer(function (ctx) {
-  ctx.data.answer = ctx.answer;
+    console.log(ctx);
+    ctx.data.answer = ctx.answer;
   // Returns promise.
   return ctx.sendMessage('OK. I understood. You feel <%=answer%>');
-});
+})
+;
 
 // bot.on('text', (msg) => {
 //     console.log(msg)
