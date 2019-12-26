@@ -2,6 +2,12 @@ const TelegramBot = require('node-telegram-bot-api')
 const TOKEN = '1067672898:AAEjorGizWrVYskfznYdtYwDAqyhiT6G25Y'
 const bot = new TelegramBot(TOKEN, { polling: true })
 const port = process.env.PORT || 3000
+const express = require('express');
+const server = express();
+
+server.listen(port, function(){
+    console.log(`Aplicacao rodando na porta ${port}`)
+})
 
 bot.on('text', (msg) => {
     console.log(msg)
