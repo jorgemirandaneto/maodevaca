@@ -1,6 +1,7 @@
 const port = process.env.PORT || 3000
 const express = require('express');
 const server = express();
+require('dotenv').config();
 
 var bb = require('bot-brother');
 var bot = bb({
