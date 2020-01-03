@@ -9,7 +9,7 @@ bot.command('oi')
   .invoke(function (ctx) {
     ctx.data.user = ctx.meta.user;
     console.log('TESTE123')
-    return ctx.sendMessage('Oi <%=user.first_name%>. Você está bem?');   
+    return ctx.sendMessage('Oi <%=user.first_name%>. Você está bem?' + ctx.data.user);   
   })
   .answer(function (ctx) {
     console.log(ctx);
