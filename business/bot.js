@@ -1,3 +1,5 @@
+const card = require('../controller/cardController')
+
 var bb = require('bot-brother');
 var bot = bb({
   key: process.env.KEY_BOT,
@@ -5,11 +7,14 @@ var bot = bb({
   polling: { interval: 0, timeout: 1 }
 });
 
+
+
 bot.command('oi')
   .invoke(function (ctx) {
+    card.add({name: 'Nu'});
     ctx.data.user = ctx.meta.user;
     console.log('TESTE123')
-    return ctx.sendMessage('Oi <%=user.first_name%>. Você está bem?' + ctx.data.user);   
+    return ctx.sendMessage('Oi <%=user.first_name%>. Você está bem?' + ctx.data.user);       
   })
   .answer(function (ctx) {
     console.log(ctx);

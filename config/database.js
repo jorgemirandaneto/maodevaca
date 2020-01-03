@@ -22,10 +22,10 @@ sequelize
 const db = {};
 
 
-// db.sequelize = sequelize;
-// db.Sequelize = Sequelize;
+db.sequelize = sequelize;
+db.Sequelize = Sequelize;
 
-// db.item = require('../models/item')(sequelize, Sequelize);
+db.card = require('../models/card')(sequelize, Sequelize);
 // db.mesuare = require('../models/mesuare')(sequelize, Sequelize);
 // db.user = require('../models/user')(sequelize, Sequelize);
 
