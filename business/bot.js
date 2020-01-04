@@ -7,17 +7,24 @@ var bot = bb({
   polling: { interval: 0, timeout: 1 }
 });
 
+bot.command('cadastrar').invoke(function (ctx) {
+  return ctx.sendMessage('This is page 2')
+}).keyboard([  
+  [{':money_with_wings: Cadastrar conta': {go: 'page3'}}],
+  [{':credit_card: cadastrar cartão': {go: 'conta'}}]
+])
 
-
-bot.command('oi')
-  .invoke(function (ctx) {
-    card.add({name: 'Nu'});
+bot.command('conta')
+  .invoke(function (ctx) {    
     ctx.data.user = ctx.meta.user;
-    console.log('TESTE123')
-    return ctx.sendMessage('Oi <%=user.first_name%>. Você está bem?' + ctx.data.user);       
+    return ctx.sendMessage('Muito bem <%=user.first_name%>. Agora digite o nome do cartão?');       
   })
   .answer(function (ctx) {
-    console.log(ctx);
     ctx.data.answer = ctx.answer;
-    return ctx.sendMessage('OK. I understood. You feel <%=answer%>');
+    try {
+      card.add({Name: ctx.answer});
+      return ctx.sendMessage('OK. O cartão <%=answer%> foi cadastrado');
+    } catch (error) {
+      return ctx.sendMessage('Infelizmente seu cartão não pode ser cadastrado');
+    }    
   });
