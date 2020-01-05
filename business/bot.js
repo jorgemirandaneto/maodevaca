@@ -8,7 +8,7 @@ var bot = bb({
 });
 
 bot.command('cadastrar').invoke(function (ctx) {
-  return ctx.sendMessage('This is page 2')
+  return ctx.sendMessage('Escolha uma opção abaixo <%=user.first_name%>!')
 }).keyboard([  
   [{':money_with_wings: Cadastrar conta': {go: 'page3'}}],
   [{':credit_card: cadastrar cartão': {go: 'conta'}}]

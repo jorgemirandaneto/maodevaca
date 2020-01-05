@@ -1,21 +1,12 @@
 const Sequelize = require('sequelize');
 
-// const sequelize = new Sequelize(process.env.DATABASE, process.env.USER_DATABASE, process.env.PASSWORD_DATABASE, {
-//     host: process.env.HOST,
-//     dialect: process.env.DIALECT,
-//     define: {
-//         underscored: true
-//     }
-// })
-
-const sequelize = new Sequelize('aziyewem', 'aziyewem', '4P2mTfe11A60R1WGF9smjanZWbiCpb7r', {
-    host: 'elmer.db.elephantsql.com',
-    dialect: 'postgres',
-    define:{
+const sequelize = new Sequelize(process.env.DATABASE, process.env.USER_DATABASE, process.env.PASSWORD_DATABASE, {
+    host: process.env.HOST,
+    dialect: process.env.DIALECT,
+    define: {
         underscored: true
     }
 })
-
 
 sequelize
     .authenticate()
