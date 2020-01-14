@@ -8,6 +8,13 @@ var bot = bb({
 });
 
 
+var Card = {
+  Nome,
+  key_user,
+  Limit
+}
+
+
 bot.command('start')
   .invoke(function (ctx) {
     ctx.data.user = ctx.meta.user;
@@ -31,7 +38,7 @@ bot.command('conta')
   .answer(function (ctx) {
     ctx.data.answer = ctx.answer;
     try {
-      card.add({ Name: ctx.answer });
+      Card.Nome = ctx.answer;
       return ctx.sendMessage('OK. O cartão <%=answer%> foi cadastrado');
     } catch (error) {
       return ctx.sendMessage('Infelizmente seu cartão não pode ser cadastrado');
