@@ -3,9 +3,11 @@ const card = db.card;
 
 
 exports.add = (cardAdd) => {
-    const { Name } = cardAdd
+    const { Name ,  } = cardAdd
     console.log(cardAdd)
     card.create({
-        Name: cardAdd.Name 
+        Name,
+        key_user,
+        Limit
     }).then(() => {return 'Ok!'})
  };
